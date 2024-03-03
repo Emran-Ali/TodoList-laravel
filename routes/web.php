@@ -14,7 +14,17 @@ use App\Http\Controllers\todoListController;
 |
 */
 
+Route::get('/test2', function()
+{
+    return View::make('pages.home');
+});
+Route::get('/about', function()
+{
+    return View::make('pages.contact');
+});
+
 Route::get('/', [todoListController::class, 'index']);
+Route::view('/test', 'test');
 Route::post('/saveItem', [todoListController::class, 'saveItem'])->name('saveItem');
 Route::post('/markDone/{id}', [todoListController::class, 'markDone'])->name('markDone');
 
