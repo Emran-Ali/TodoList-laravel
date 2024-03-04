@@ -4,8 +4,9 @@
     @include('includes.head')
 </head>
 <body>
-<div class="container">
-    <header class="row">
+<div class="container text-center border border-5 w-25">
+
+    <header class="row ">
         @include('includes.header')
     </header>
     <div id="main" class="row">

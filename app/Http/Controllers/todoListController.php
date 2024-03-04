@@ -12,7 +12,6 @@ class todoListController extends Controller
 
     }
     public function markDone($id){
-//        dd($id);
         $listItem = listItem::find($id);
         $listItem->is_done = 1;
         $listItem->save();

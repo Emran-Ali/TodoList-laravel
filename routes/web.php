@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\todoListController;
+use App\Http\Controllers\TestUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,21 @@ Route::get('/test2', function()
 {
     return View::make('pages.home');
 });
+
 Route::get('/about', function()
 {
     return View::make('pages.contact');
 });
+Route::get('/table/{number?}', function ($number = 2) {
+    for($i =1; $i <= 10 ; $i++){
+        echo "$i * 2 = ". $i*$number ."<br>";
+    }
+});
+
+//user section
+Route::get('/user', [TestUserController::class, 'index'] );
+Route::post('user/store', [TestUserController::class, 'store'])->name('store');
+Route::post('user/check/{id}', [todoListController::class, 'check'])->name('check');
 
 Route::get('/', [todoListController::class, 'index']);
 Route::view('/test', 'test');
