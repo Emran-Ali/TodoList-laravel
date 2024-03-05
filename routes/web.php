@@ -33,7 +33,7 @@ Route::get('/table/{number?}', function ($number = 2) {
 //user section
 Route::get('/user', [TestUserController::class, 'index'] );
 Route::post('user/store', [TestUserController::class, 'store'])->name('store');
-Route::post('user/check/{id}', [todoListController::class, 'check'])->name('check');
+Route::post('user/check/{age}', [TestUserController::class, 'check'])->name('check')->middleware('testMid:{{$age}}');
 
 Route::get('/', [todoListController::class, 'index']);
 Route::view('/test', 'test');

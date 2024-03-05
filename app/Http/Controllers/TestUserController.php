@@ -15,7 +15,11 @@ class TestUserController extends Controller
     {
         return view('user.userList', ['users' => TestUser::all()]);
     }
-
+    public function check($id){
+//        return view('user.pass18', ['users' => TestUser::all()]);
+        $checkUser = TestUser::find($id);
+            return view('user.under18');
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -44,16 +48,7 @@ class TestUserController extends Controller
     {
 
     }
-    public function check($id){
-        $checkUser = listItem::find($id);
-        if($checkUser->age >18){
-            redirect()
 
-        }
-
-        return redirect('/');
-
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -79,3 +74,4 @@ class TestUserController extends Controller
         //
     }
 }
+
